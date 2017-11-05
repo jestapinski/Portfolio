@@ -1,5 +1,18 @@
+:root{
+  --teal: #6BBAA7;
+  --purple: #6C648B;
+}
+
 .App {
-  text-align: center;
+}
+
+.top-nav-link {
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+.github-logo {
+  height: 50px;
 }
 
 .App-logo {
@@ -20,6 +33,14 @@
 
 .App-intro {
   font-size: large;
+}
+
+.is-teal-text {
+  color: var(--teal);
+}
+
+.header {
+  background-color: var(--purple);
 }
 
 @keyframes App-logo-spin {
