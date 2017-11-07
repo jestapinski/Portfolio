@@ -10,7 +10,7 @@ class Header extends React.Component {
         <div className="navbar">
         <div className="container">
           <div className={"navbar-start"}>
-            <p className={classnames("is-teal-text", "is-size-3")}>Jordan Stapinski</p>
+            <p className="is-teal-text is-size-3">Jordan Stapinski</p>
           </div>
           <div className={"navbar-end"}>
           

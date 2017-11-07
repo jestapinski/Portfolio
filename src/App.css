@@ -2,6 +2,7 @@
   --teal: #6BBAA7;
   --purple: #6C648B;
   --off-grey: #B6A19E;
+  --off-yellow: #FBA100;
 }
 
 .App {
@@ -56,7 +57,15 @@
   color: var(--purple);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.is-deep-yellow {
+  color: var(--off-yellow);
 }
+
+.bg-img { 
+  background-image: url(about.png) ;
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;
+ }
