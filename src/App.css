@@ -61,11 +61,22 @@
   color: var(--off-yellow);
 }
 
+.is-white {
+  color: white;
+}
+
 .bg-img { 
-  background-image: url(about.png) ;
   background-position: center center;
   background-repeat:  no-repeat;
   background-attachment: fixed;
   background-size:  cover;
   background-color: #999;
+ }
+
+ #About {
+    background-image: url(about.png) ;
+ }
+
+ #Projects{
+  background-image: url(presentation.png);
  }

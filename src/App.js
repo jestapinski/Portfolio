@@ -24,7 +24,7 @@ class App extends Component {
       <div className="App">
         <section className="hero is-fullheight">
           <Header />
-          <Body />
+          <Body active={this.state.active}/>
           <Footer active={this.state.active} handle_click={this.handler} />
         </section>
       </div>
