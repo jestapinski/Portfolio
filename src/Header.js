@@ -9,10 +9,10 @@ class Header extends React.Component {
       <div className={classnames("hero-head")}>
         <div className="navbar">
         <div className="container">
-          <div className={"navbar-start"}>
-            <p className="is-teal-text is-size-3">Jordan Stapinski</p>
+          <div className="navbar-start">
+            <a className="is-teal-text is-size-3" href="/">Jordan Stapinski</a>
           </div>
-          <div className={"navbar-end"}>
+          <div className="navbar-end">
           
             <a href="https://www.github.com/jestapinski" className="top-nav-link">
               <img src="github.png" className="github-logo" />

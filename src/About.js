@@ -6,8 +6,8 @@ class About extends React.Component {
 
   render(){
       return (
-        <div className="container has-text-centered">
-          <h1 className="animated title is-1 fadeInUp is-spaced is-deep-yellow" style={{textAlign: "center"}}>
+        <div className="container">
+          <h1 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
               I Live to Make an Impact.
           </h1>
           <p className="animated subtitle fadeInUp is-5 is-white">I am a <span className="title is-5 is-white">senior at Carnegie Mellon University pursuing a double-major in Information Systems and Human-Computer Interaction, with a minor in Computer Science.</span><br/><br/>

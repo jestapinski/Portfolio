@@ -8,6 +8,15 @@
 .App {
 }
 
+.card {
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.full {
+  margin-top: -20%;
+}
+
 .top-nav-link {
   padding-top: 10px;
   padding-right: 15px;
@@ -46,7 +55,7 @@
 }
 
 .hero-foot {
-  background-color: var(--purple) !important;
+  background-color: black !important;
 }
 
 .hero-foot li a {
@@ -79,4 +88,8 @@
 
  #Projects{
   background-image: url(presentation.png);
+ }
+
+.hero-body {
+  flex: 1;
  }
