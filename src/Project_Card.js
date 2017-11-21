@@ -15,6 +15,7 @@ class Project_Card extends React.Component {
     console.log(props);
     // Reassign prop project for quicker access
     this.project = this.props.project;
+    this.flip_handler = this.props.handler;
   }
 
 /*
@@ -22,21 +23,22 @@ class Project_Card extends React.Component {
 */
   render(){
     return (
-      <div className="card column animated fadeInUp">
-        <div className="card-image">
-          <figure className="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt={this.project.name}/>
-          </figure>
-        </div>
-        <div className="card-content">
-          <div className="media">
+        <div className="card column animated fadeInUp" onClick={this.flip_handler}>
+          <div className="card-image">
+            <figure className="image is-square">
+              <img src={this.project.image_path} alt={this.project.name}/>
+            </figure>
           </div>
-          <div className="content">
-            {this.project.short_description}
-            <br/>
+          <div className="card-content">
+            <div className="media">
+            </div>
+            <div className="content">
+              <p className="pname is-size-6"><b>{this.project.name}</b></p>
+              {this.project.short_description}
+              <br/>
+            </div>
           </div>
         </div>
-      </div>
       )
   }
 }
