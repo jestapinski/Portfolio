@@ -15,7 +15,7 @@ class Project_Card extends React.Component {
     console.log(props);
     // Reassign prop project for quicker access
     this.project = this.props.project;
-    this.flip_handler = this.props.handler;
+    this.flip_handler = (function(){this.props.handler(this.project)}).bind(this);
   }
 
 /*

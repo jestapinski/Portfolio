@@ -22,22 +22,26 @@ class Projects extends React.Component {
       { 
         name: "Enigma Unit", 
         short_description: "Deploying hybrid education.",
-        image_path: "project_imgs/enigma.png" 
+        image_path: "project_imgs/enigma.png",
+        index: 0 
       },
       { 
         name: "67-495 Course Creation", 
         short_description: "Teaching modern web apps.",
-        image_path: "project_imgs/cmuis.png"
+        image_path: "project_imgs/cmuis.png",
+        index: 1
       },
       { 
         name: "Oppia Labeling Extension", 
         short_description: "Improving online education.",
-        image_path: "project_imgs/Oppia_logo.png" 
+        image_path: "project_imgs/Oppia_logo.png",
+        index: 2 
       },
       { 
         name: "Touchify iOS App", 
         short_description: "Cross-Platform security.",
-        image_path: "project_imgs/TouchifyAppicon.png" 
+        image_path: "project_imgs/TouchifyAppicon.png",
+        index: 3 
       }
     ];
     // Define projects to be in the lower row of projects
@@ -45,22 +49,26 @@ class Projects extends React.Component {
       { 
         name: "Mites Occupancy Sensing", 
         short_description: "People sensing without video.",
-        image_path: "project_imgs/synth_sensor.jpeg"
+        image_path: "project_imgs/synth_sensor.jpeg",
+        index: 4
       },
       { 
         name: "Radix Sort Exercise", 
         short_description: "Interactive pedagogical content.",
-        image_path: "project_imgs/radix_sort.png" 
+        image_path: "project_imgs/radix_sort.png",
+        index: 5 
       },
       { 
         name: "CSNYC Portal", 
         short_description: "Scoping content distribution.",
-        image_path: "project_imgs/cstoall_hub.png" 
+        image_path: "project_imgs/cstoall_hub.png",
+        index: 6 
       },
       { 
         name: "BlockTrader iOS App", 
         short_description: "Localized food sharing economy.",
-        image_path: "project_imgs/BlocktraderAppicon.png" 
+        image_path: "project_imgs/BlocktraderAppicon.png",
+        index: 7 
       }
     ];
     this.state = {
@@ -70,12 +78,11 @@ class Projects extends React.Component {
     this.clear = this.clear_expanded.bind(this);
   }
 
-  flip_expanded(){
-    this.setState({expanded: !(this.state.expanded)});
+  flip_expanded(project){
+    this.setState({expanded: project});
   }
 
   clear_expanded(){
-    console.log('clear');
     this.setState({expanded: false});
   }
 
@@ -88,17 +95,18 @@ class Projects extends React.Component {
   }
 
   render_expanded(){
-    let cname;
+    let cname, c_pos;
     let expanded = this.state.expanded;
     if (expanded){
       cname = "modal is-active";
+      c_pos = "modal-card mc-" + expanded.index.toString();
     } else {
-      cname = "modal hidden";
+      return;
     }
     return (
       <div className={cname}>
         <div className="modal-background" onClick={this.clear}></div>
-        <div className="modal-card mc-1">
+        <div className={c_pos}>
           <header className="modal-card-head">
             <p className="modal-card-title">Modal title</p>
             <button className="delete" aria-label="close" onClick={this.clear}></button>
@@ -118,9 +126,9 @@ class Projects extends React.Component {
   Renders the projects main body, with a title and two rows of projects.
 */
   render(){
-    let col_class = 'columns';
+    let col_class = 'columns is-mobile';
     if (this.state.expanded){
-      col_class = 'columns semi-opaque';
+      col_class = 'columns is-mobile semi-opaque';
     }
     return (
       <div className="container">
