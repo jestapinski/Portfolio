@@ -1,3 +1,11 @@
+/*
+  Jordan Stapinski (jstapins)
+  CMU PUI A6 - Project Portfolio
+  Body.js
+
+  Renders the webpage body based on the state of the application.
+*/
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import About from './About.js';
@@ -12,6 +20,10 @@ class Body extends React.Component {
     super(props)
   }
 
+/*
+  Choose the body content component to use based on which section
+  of the website the user has requested to see.
+*/
   render_content(){
     switch (this.props.active){
       case 'About':
@@ -27,6 +39,14 @@ class Body extends React.Component {
     }
   }
 
+/*
+  Render the body content. Note that this simply invokes the
+  render_content function above in order to change the central
+  content on the website.
+
+  Note the id also changes to change the background image displayed
+  (see App.css for more on background image switching).
+*/
   render(){
     return (
       <div className="hero-body bg-img" id={this.props.active}>

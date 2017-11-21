@@ -1,34 +1,61 @@
+/*
+  Jordan Stapinski (jstapins)
+  CMU PUI A6 - Project Portfolio
+  Projects.js
+
+  Renders the body if the "Projects" tab is selected.
+
+  Defines the projects to be displayed and renders each one as a
+  Project Card Component.
+*/
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Project_Card from './Project_Card.js';
 import './App.css';
 
 class Projects extends React.Component {
+  constructor(props){
+    super(props);
+    // Define projects to be in the upper row of projects
+    this.upper_projects = [
+      { name: "Enigma Unit", short_description: "Deploying hybrid education." },
+      { name: "67-495 Course Creation", short_description: "Teaching modern web apps." },
+      { name: "Oppia Labeling Extension", short_description: "Improving online education." },
+      { name: "Touchify iOS App", short_description: "Cross-Platform biometric security." }
+    ];
+    // Define projects to be in the lower row of projects
+    this.lower_projects = [
+      { name: "Mites Occupancy Sensing", short_description: "People sensing without video." },
+      { name: "Radix Sort Exercise", short_description: "Interactive pedagogical content." },
+      { name: "CSNYC Portal", short_description: "Scoping content distribution." },
+      { name: "BlockTrader iOS App", short_description: "Localized food sharing economy." }
+    ]
+  }
 
+/*
+  Pass the project to be rendered to another component to handle the project
+  object itself.
+*/
+  render_project(project){
+    return (<Project_Card project={project}/>)
+  }
+
+/*
+  Renders the projects main body, with a title and two rows of projects.
+*/
   render(){
-  	// Set below to -20% margin
       return (
         <div className="container">
           <h1 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
               Significant Projects
           </h1>
-          <p className="animated subtitle fadeInUp is-5 is-white">I am a <span className="title is-5 is-white">senior at Carnegie Mellon University pursuing a double-major in Information Systems and Human-Computer Interaction, with a minor in Computer Science.</span><br/><br/>
-            The focus of my work has been in technical education. What use is technology that is too convoluted for people to understand?<br/><br/> 
-            Through several independent study projects, summer internship projects, teaching assistant positions, and more, I have been seeking to utilize technology to meet the needs of people in a means that makes sense.<br/><br/>
-            Let’s bring people together. 
-          </p>
           <div className="columns">
-            <Project_Card />
-            <Project_Card />
-            <Project_Card />
-            <Project_Card />
+            {this.upper_projects.map(project => this.render_project(project))}
           </div>
           <br/>
           <div className="columns">
-            <Project_Card />
-            <Project_Card />
-            <Project_Card />
-            <Project_Card />
+            {this.lower_projects.map(project => this.render_project(project))}
           </div>
         </div>
       )

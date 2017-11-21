@@ -1,3 +1,11 @@
+/*
+  Jordan Stapinski (jstapins)
+  CMU PUI A6 - Project Portfolio
+  Coursework.js
+
+  Renders the list of courses taken to the user.
+*/
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';

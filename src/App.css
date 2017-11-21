@@ -1,3 +1,11 @@
+/*
+  Jordan Stapinski (jstapins)
+  CMU PUI A6 - Project Portfolio
+  App.css
+
+  Defines additional styling on top of Bulma CSS to be used.
+*/
+
 :root{
   --teal: #6BBAA7;
   --purple: #6C648B;
@@ -8,9 +16,16 @@
 .App {
 }
 
+/*
+  Force the card content to take the entire width of the card,
+  and give some space.
+*/
 .card {
   margin-right: 1%;
   margin-left: 1%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
 }
 
 .full {
@@ -24,11 +39,6 @@
 
 .github-logo {
   height: 30px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
@@ -82,8 +92,12 @@
   background-color: #999;
  }
 
+/*
+  Below switches background images based on which state the site is in
+  (About, Projects, etc.)
+*/
  #About {
-    background-image: url(about.png) ;
+  background-image: url(about.png) ;
  }
 
  #Projects{
