@@ -99,7 +99,7 @@ class Projects extends React.Component {
     let expanded = this.state.expanded;
     if (expanded){
       cname = "modal is-active";
-      c_pos = "modal-card mc-" + expanded.index.toString();
+      c_pos = "modal-card is-half mc-" + expanded.index.toString();
     } else {
       return;
     }
@@ -108,14 +108,22 @@ class Projects extends React.Component {
         <div className="modal-background" onClick={this.clear}></div>
         <div className={c_pos}>
           <header className="modal-card-head">
-            <p className="modal-card-title">Modal title</p>
+            <p className="modal-card-title">{expanded.name}</p>
             <button className="delete" aria-label="close" onClick={this.clear}></button>
           </header>
           <section className="modal-card-body">
+            <div className="columns">
+              <div className="column is-one-third">
+                <figure className="image is-128x128 centered">
+                  <img src={expanded.image_path} alt={expanded.name}/>
+                </figure>
+              </div>
+              <div className="column">
+                {expanded.short_description}
+              </div>
+            </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success">Save changes</button>
-            <button className="button">Cancel</button>
           </footer>
         </div>
       </div>
@@ -126,9 +134,9 @@ class Projects extends React.Component {
   Renders the projects main body, with a title and two rows of projects.
 */
   render(){
-    let col_class = 'columns is-mobile';
+    let col_class = 'columns';
     if (this.state.expanded){
-      col_class = 'columns is-mobile semi-opaque';
+      col_class = 'columns semi-opaque';
     }
     return (
       <div className="container">
