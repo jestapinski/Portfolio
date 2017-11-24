@@ -137,11 +137,19 @@
   (About, Projects, etc.)
 */
  #About {
-  background-image: url(about.png) ;
+  background-image: url(experience.png) ;
  }
 
  #Projects{
   background-image: url(presentation.png);
+ }
+
+ #Professional\ Experience{
+  background-image: url(about.png);
+ }
+
+ #Coursework{
+  background-image: url(coursework.png);
  }
 
 .hero-body {

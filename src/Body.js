@@ -30,7 +30,7 @@ class Body extends React.Component {
         return (<About />);
       case 'Projects':
         return (<Projects />);
-      case 'Project Experience':
+      case 'Professional Experience':
         return (<Experience />);
       case 'Coursework':
         return (<Coursework />);
