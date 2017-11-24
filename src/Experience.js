@@ -12,26 +12,38 @@ class Experience extends React.Component {
         position: "Software Engineering Intern", 
         dates: "May 2017 - August 2017",
         short_description: "Tools for Teaching CS",
-        image_path: "exp_imgs/mongo.png" 
+        image_path: "exp_imgs/mongo.png",
+        location: "New York, NY",
+        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."
       },
       { corp: "Carnegie Mellon University", 
         position: "Teaching Assistant", 
         dates: "August 2015 - Present",
         short_description: "Computer Science, Web Applications",
-        image_path: "exp_imgs/ta.png"  
+        image_path: "exp_imgs/ta.png",
+        location: "Pittsburgh, PA",
+        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
     }];
     this.lower_experience = [
       { corp: "Bank of America", 
         position: "Software Engineering Intern", 
         dates: "June 2016 - August 2016",
         short_description: "Valuation Control Automation",
-        image_path: "exp_imgs/boa.png"  
+        image_path: "exp_imgs/boa.png",
+        location: "New York, NY",
+        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
       },
       { corp: "Carnegie Mellon University", 
         position: "Student Life", 
         dates: "August 2016 - Present",
         short_description: "Resident Assistant, Community Advisor",
-        image_path: "exp_imgs/mudge.png"  
+        image_path: "exp_imgs/mudge.png",
+        location: "Pittsburgh, PA",
+        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
       }, 
     ];
     this.state = {
@@ -54,7 +66,7 @@ render_expanded(){
     let expanded = this.state.expanded;
     if (expanded){
       cname = "modal is-active";
-      c_pos = "modal-card is-half mc-1";
+      c_pos = "modal-card wide";
     } else {
       return;
     }
@@ -63,26 +75,31 @@ render_expanded(){
         <div className="modal-background" onClick={this.clear}></div>
         <div className={c_pos}>
           <header className="modal-card-head">
-            <p className="modal-card-title">{expanded.corp}</p>
+            <p className="modal-card-title">{expanded.corp} - {expanded.position}</p>
             <button className="delete" aria-label="close" onClick={this.clear}></button>
           </header>
           <section className="modal-card-body">
             <div className="columns">
-              <div className="column is-one-third">
-                <figure className="image is-128x128 centered">
+              <div className="column is-two-thirds">
+                <figure className="image is-4x3 centered">
                   <img src={expanded.image_path} alt={expanded.corp}/>
                 </figure>
               </div>
               <div className="column">
                 <p className="is-size-3">{expanded.corp}</p>
-                <p><i>{expanded.short_description}</i></p>
+                <p><i>{expanded.location}</i></p>
                 <p><i>{expanded.dates}</i></p>
                 <br/>
-                <p className="is-size-4">Description</p>
-                <p>{expanded.short_description}</p>
+                <p className="is-size-4">{expanded.position}</p>
+                <p><i>{expanded.short_description}</i></p>
+                <br/>
+                <p className="is-size-4">Skills Obtained</p>
+                <p>{expanded.skills}</p>
                 <br/>
               </div>
             </div>
+            <p className="is-size-3">Description</p>
+            <p className="is-size-6">{expanded.description}</p>
           </section>
           <footer className="modal-card-foot">
           </footer>

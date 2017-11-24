@@ -108,6 +108,11 @@
   z-index: 10;
 }
 
+.wide {
+  left: 80px;
+  width: 1000px;
+}
+
 .hero-head {
   margin-top: 10px;
 }
