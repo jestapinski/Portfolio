@@ -52,18 +52,56 @@ class Coursework extends React.Component {
       {num: "79-213", dept: "HIS", sem: "S18", title: "The American Railroad"},
       {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"},
     ];
+
+    this.departments = [
+      {abbrev: 'CS',  name: 'Computer Science', description: 'CMU 15-XXX'},
+      {abbrev: 'PHY', name: 'Physics', description: 'CMU 33-XXX'},
+      {abbrev: 'STA', name: 'Statistics', description: 'CMU 36-XXX'},
+      {abbrev: 'ENG', name: 'English', description: 'CMU 76-XXX'},
+      {abbrev: 'PSY', name: 'Psychology', description: 'CMU 85-XXX'},
+      {abbrev: 'DES', name: 'Design', description: 'CMU 51-XXX'},
+      {abbrev: 'HIS', name: 'History', description: 'CMU 79-XXX'},
+      {abbrev: 'IS', name: 'Information Systems', description: 'CMU 67-XXX'},
+      {abbrev: 'SDS', name: 'Social and Decision Science', description: 'CMU 88-XXX'},
+      {abbrev: 'MAT', name: 'Mathematical Sciences', description: 'CMU 21-XXX'},
+      {abbrev: 'MUS', name: 'Music', description: 'CMU 57-XXX'},
+      {abbrev: 'HCI', name: 'Human-Computer Interaction', description: 'CMU 05-XXX'},
+      {abbrev: 'ISR', name: 'Institute for Software Research', description: 'CMU 08-XXX'},
+      {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX'},
+    ];
+
+    this.display_courses = {};
+
     this.state = {
       sorted: 'department'
     };
+
+    this.display_courses = this.group_courses();
+
     this.toggle_sorted = this.handle_change.bind(this);
+  }
+
+  reduce_courses(prop){
+    return this.courses.reduce(function(groups, item) {
+          var val = item[prop];
+          groups[val] = groups[val] || [];
+          groups[val].push(item);
+          return groups;
+        }, {});
   }
 
   group_courses(){
     // Case on sorted state (department, semester)
     switch (this.state.sorted){
       case 'department':
+        this.display_courses = this.reduce_courses('dept');
+        console.log(this.display_courses);
         return;
       case 'semester':
+        this.display_courses = this.reduce_courses('sem');
+        console.log(this.display_courses);
+        return;
+      default:
         return;
     }
   }
@@ -132,6 +170,7 @@ class Coursework extends React.Component {
 
   handle_change(event) {
     this.setState({sorted: event.target.value.toLowerCase()});
+    this.group_courses();
   }
 
   render(){
