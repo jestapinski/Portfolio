@@ -17,6 +17,10 @@
   font-family: 'Avenir';
 }
 
+.label {
+  color: var(--teal);
+}
+
 /*
   Force the card content to take the entire width of the card,
   and give some space.
