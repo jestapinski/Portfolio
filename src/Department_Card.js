@@ -25,12 +25,14 @@ class Department_Card extends React.Component {
     return (
         <div className="card column animated fadeInUp" onClick={this.flip_handler}>
           <div className="card-image">
-            <figure className="image is-4x3">
+            <figure className="image is-square">
+              <img src={this.department.image_path} alt={this.department.abbrev}/>
             </figure>
           </div>
           <div className="card-content">
             <div className="content bottomless">
-              <p className="pname is-size-4">{this.department.name}</p>
+              <p className="pname is-size-5">{this.department.name}</p>
+              <span className="pname is-size-6"><i>{this.props.courses.length} Course{(this.props.courses.length > 1) ? 's': ''}</i></span>
             </div>
           </div>
         </div>

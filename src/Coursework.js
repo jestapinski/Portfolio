@@ -10,6 +10,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Department_Card from './Department_Card.js'
 import Semester_Card from './Semester_Card.js'
+import DepartmentExpanded from './DepartmentExpanded.js'
+import SemesterExpanded from './SemesterExpanded.js'
 import './App.css';
 
 class Coursework extends React.Component {
@@ -56,21 +58,26 @@ class Coursework extends React.Component {
     ];
 
     this.departments = [
-      {abbrev: 'CS',  name: 'Computer Science', description: 'CMU 15-XXX'},
-      {abbrev: 'PHY', name: 'Physics', description: 'CMU 33-XXX'},
-      {abbrev: 'STA', name: 'Statistics', description: 'CMU 36-XXX'},
-      {abbrev: 'ENG', name: 'English', description: 'CMU 76-XXX'},
-      {abbrev: 'PSY', name: 'Psychology', description: 'CMU 85-XXX'},
-      {abbrev: 'DES', name: 'Design', description: 'CMU 51-XXX'},
-      {abbrev: 'HIS', name: 'History', description: 'CMU 79-XXX'},
-      {abbrev: 'IS', name: 'Information Systems', description: 'CMU 67-XXX'},
-      {abbrev: 'SDS', name: 'Social and Decision Science', description: 'CMU 88-XXX'},
-      {abbrev: 'MAT', name: 'Mathematical Sciences', description: 'CMU 21-XXX'},
-      {abbrev: 'MUS', name: 'Music', description: 'CMU 57-XXX'},
-      {abbrev: 'HCI', name: 'Human-Computer Interaction', description: 'CMU 05-XXX'},
-      {abbrev: 'ISR', name: 'Institute for Software Research', description: 'CMU 08-XXX'},
-      {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX'},
+      {abbrev: 'CS',  name: 'Computer Science', description: 'CMU 15-XXX', image_path: "dept_imgs/CS.png"},
+      {abbrev: 'IS', name: 'Information Systems', description: 'CMU 67-XXX', image_path: "dept_imgs/IS.png"},
+      {abbrev: 'HCI', name: 'Human-Computer Interaction', description: 'CMU 05-XXX', image_path: "dept_imgs/HCI.png"},
+      {abbrev: 'STA', name: 'Statistics', description: 'CMU 36-XXX', image_path: "dept_imgs/STA.png"},
+      {abbrev: 'ISR', name: 'Institute for Software Research', description: 'CMU 08-XXX', image_path: "dept_imgs/ISR.png"},
+      {abbrev: 'PHY', name: 'Physics', description: 'CMU 33-XXX', image_path: "dept_imgs/PHY.png"},
+      {abbrev: 'MAT', name: 'Mathematical Sciences', description: 'CMU 21-XXX', image_path: "dept_imgs/MAT.png"},
+      {abbrev: 'PSY', name: 'Psychology', description: 'CMU 85-XXX', image_path: "dept_imgs/PSY.png"},
+      {abbrev: 'DES', name: 'Design', description: 'CMU 51-XXX', image_path: "dept_imgs/DES.png"},
+      {abbrev: 'HIS', name: 'History', description: 'CMU 79-XXX', image_path: "dept_imgs/HIS.png"},
+      {abbrev: 'SDS', name: 'Social and Decision Sciences', description: 'CMU 88-XXX', image_path: "dept_imgs/SDS.png"},
+      {abbrev: 'ENG', name: 'English', description: 'CMU 76-XXX', image_path: "dept_imgs/ENG.png"},
+      {abbrev: 'MUS', name: 'Music', description: 'CMU 57-XXX', image_path: "dept_imgs/MUS.png"},
+      {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX', image_path: "dept_imgs/PHI.png"},
     ];
+
+    this.mapped_departments = {};
+    for (var i=0; i<this.departments.length; i++) {
+      this.mapped_departments[this.departments[i].abbrev] = {name: this.departments[i].name, description: this.departments[i].description};
+    }
 
     this.semesters = [
       {abbrev: "F14", name: "Fall 2014", image_path: "sem_imgs/F14.png"},
@@ -84,6 +91,11 @@ class Coursework extends React.Component {
     ]
 
     this.display_courses = {};
+
+    this.mapped_semesters = {};
+    for (var k = 0; k < this.semesters.length; k++){
+      this.mapped_semesters[this.semesters[k].abbrev] = {name: this.semesters[k].name, description: this.semesters[k].description};
+    }
 
     this.state = {
       sorted: 'department',
@@ -132,67 +144,13 @@ class Coursework extends React.Component {
 
   render_department_card(dept){
     // If the sort is by department, render department cards
-    return (<Department_Card department={dept} key={dept.name} handler={this.handler} />)
+    return (<Department_Card department={dept} key={dept.name} handler={this.handler} courses={this.display_courses[dept['abbrev']]} />)
   }
 
   render_semester_card(sem){
     // If the sort is by semester, render semester cards
-    return (<Semester_Card semester={sem} key={sem.abbrev} handler={this.handler} />)
+    return (<Semester_Card semester={sem} key={sem.abbrev} handler={this.handler} courses={this.display_courses[sem['abbrev']]} />)
   }  
-
-  render_table(){
-    return (
-      <table className="table is-striped">
-        <thead>
-          <tr>
-            <th><abbr title="Position">Pos</abbr></th>
-            <th>Team</th>
-            <th><abbr title="Played">Pld</abbr></th>
-            <th><abbr title="Won">W</abbr></th>
-            <th><abbr title="Drawn">D</abbr></th>
-            <th><abbr title="Lost">L</abbr></th>
-            <th><abbr title="Goals for">GF</abbr></th>
-            <th><abbr title="Goals against">GA</abbr></th>
-            <th><abbr title="Goal difference">GD</abbr></th>
-            <th><abbr title="Points">Pts</abbr></th>
-            <th>Qualification or relegation</th>
-          </tr>
-        </thead>
-        <tfoot>
-        </tfoot>
-        <tbody>
-          <tr>
-            <th>1</th>
-            <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
-            </td>
-            <td>38</td>
-            <td>23</td>
-            <td>12</td>
-            <td>3</td>
-            <td>68</td>
-            <td>36</td>
-            <td>+32</td>
-            <td>81</td>
-            <td>Qualification for the <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League">Champions League group stage</a></td>
-          </tr>
-          <tr>
-            <th>1</th>
-            <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
-            </td>
-            <td>38</td>
-            <td>23</td>
-            <td>12</td>
-            <td>3</td>
-            <td>68</td>
-            <td>36</td>
-            <td>+32</td>
-            <td>81</td>
-            <td>Qualification for the <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League">Champions League group stage</a></td>
-          </tr>
-        </tbody>
-      </table>
-    )
-  }
 
   handle_change(event) {
     this.setState({sorted: event.target.value.toLowerCase()});
@@ -200,43 +158,16 @@ class Coursework extends React.Component {
   }
 
   render_expanded(){
-    let cname, c_pos;
-    let expanded = this.state.expanded;
-    if (expanded){
-      cname = "container modal animated fadeIn is-active";
-      c_pos = "modal-card wide";
-    } else {
-      return;
+    if (this.state.expanded){
+      switch (this.state.sorted){
+        case 'department':
+          return (<DepartmentExpanded expanded={this.state.expanded} clear={this.clear} courses={this.display_courses[this.state.expanded['abbrev']]} sems={this.mapped_semesters} />);
+        case 'semester':
+          return (<SemesterExpanded expanded={this.state.expanded} clear={this.clear} courses={this.display_courses[this.state.expanded['abbrev']]} depts={this.mapped_departments} />);
+        default:
+          return;
+      }      
     }
-    return (
-      <div className={cname}>
-        <div className="modal-background" onClick={this.clear}></div>
-        <div className={c_pos}>
-          <header className="modal-card-head">
-            <p className="modal-card-title">{expanded.name}</p>
-            <button className="delete" aria-label="close" onClick={this.clear}></button>
-          </header>
-          <section className="modal-card-body">
-            <div className="columns">
-              <div className="column is-two-thirds">
-                <figure className="image is-4x3 centered">
-                </figure>
-              </div>
-              <div className="column">
-                <p className="is-size-3">{expanded.name}</p>
-                <p><i>{expanded.abbrev}</i></p>
-                <p><i>{expanded.description}</i></p>
-                <br/>
-              </div>
-            </div>
-            <p className="is-size-3">Description</p>
-            <p className="is-size-6">{expanded.description}</p>
-          </section>
-          <footer className="modal-card-foot">
-          </footer>
-        </div>
-      </div>
-    )
   }
 
   render(){
@@ -259,11 +190,15 @@ class Coursework extends React.Component {
             </select>
           </div>
           <div className={col_class}>
-            {this.departments.slice(0, 8).map(dept => this.render_department_card(dept))}
+            {this.departments.slice(0, 4).map(dept => this.render_department_card(dept))}
           </div>
           <br/>
           <div className={col_class}>
-            {this.departments.slice(8, 16).map(dept => this.render_department_card(dept))}
+            {this.departments.slice(4, 9).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+          <div className={col_class}>
+            {this.departments.slice(9, 15).map(dept => this.render_department_card(dept))}
           </div>
           {this.render_expanded()}
         </div>

@@ -32,6 +32,7 @@ class Semester_Card extends React.Component {
           <div className="card-content">
             <div className="content bottomless">
               <p className="pname is-size-4">{this.semester.name}</p>
+              <span className="pname is-size-6"><i>{this.props.courses.length} Course{(this.props.courses.length > 1) ? 's': ''}</i></span>
             </div>
           </div>
         </div>
