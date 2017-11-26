@@ -195,8 +195,8 @@ class Projects extends React.Component {
     let cname, c_pos;
     let expanded = this.state.expanded;
     if (expanded){
-      cname = "modal is-active";
-      c_pos = "modal-card is-half mc-" + expanded.index.toString();
+      cname = "container animated fadeIn modal is-active";
+      c_pos = "modal-card mc-" + expanded.index.toString();
     } else {
       return;
     }

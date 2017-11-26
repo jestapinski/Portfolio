@@ -68,14 +68,20 @@
   top: 15%;
 }
 
+.modal {
+  -webkit-animation-duration: 0.5s;
+}
+
 .mc-0 {
-  left: 8%;
+  left: 0%;
   top: 15%;
+  width: 60%;
 }
 
 .mc-1 {
-  left: 29.5%;
+  left: 25.5%;
   top: 15%;
+  width: 60%;
 }
 
 .full {
@@ -117,8 +123,8 @@
 }
 
 .wide {
-  left: 80px;
-  width: 1000px;
+  left: 0%;
+  width: 90%;
 }
 
 .hero-head {

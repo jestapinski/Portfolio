@@ -23,7 +23,7 @@ class Experience extends React.Component {
         short_description: "Computer Science, Web Applications",
         image_path: "exp_imgs/ta.png",
         location: "Pittsburgh, PA",
-        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        skills: ["Python", "Communication", "Administration", "Work-Life Balance", "Teamwork", "Presentation Skills"],
         description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
     }];
     this.lower_experience = [
@@ -33,7 +33,7 @@ class Experience extends React.Component {
         short_description: "Valuation Control Automation",
         image_path: "exp_imgs/boa.png",
         location: "New York, NY",
-        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        skills: ["Python", "Industrial Testing", "Agile Development", "Work-Life Balance", "Teamwork", "Presentation Skills"],
         description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
       },
       { corp: "Carnegie Mellon University", 
@@ -42,7 +42,7 @@ class Experience extends React.Component {
         short_description: "Resident Assistant, Community Advisor",
         image_path: "exp_imgs/mudge.png",
         location: "Pittsburgh, PA",
-        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        skills: ["Work-Life Balance", "Teamwork", "Presentation Skills", "Emergency Response", "Administration"],
         description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."   
       }, 
     ];
@@ -65,7 +65,7 @@ class Experience extends React.Component {
     let cname, c_pos;
     let expanded = this.state.expanded;
     if (expanded){
-      cname = "modal is-active";
+      cname = "container modal animated fadeIn is-active";
       c_pos = "modal-card wide";
     } else {
       return;

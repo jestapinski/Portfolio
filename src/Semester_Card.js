@@ -30,15 +30,8 @@ class Semester_Card extends React.Component {
             </figure>
           </div>
           <div className="card-content">
-            <div className="content columns">
-            <div className="column bottomless">
-              <p className="pname is-size-5"><b>{this.semester.name}</b></p>
-              <br/>
-            </div>
-            <div className="column bottomless">
-              <p className="pname is-size-5"><b>{this.semester.abbrev}</b></p>
-              <br/>
-            </div>
+            <div className="content bottomless">
+              <p className="pname is-size-4">{this.semester.name}</p>
             </div>
           </div>
         </div>

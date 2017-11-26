@@ -77,10 +77,10 @@ class Coursework extends React.Component {
       {abbrev: "S15", name: "Spring 2015", image_path: "sem_imgs/S15.png"},
       {abbrev: "F15", name: "Fall 2015", image_path: "sem_imgs/F15.png"},
       {abbrev: "S16", name: "Spring 2016", image_path: "sem_imgs/S16.png"},
-      {abbrev: "F16", name: "Fall 2016", image_path: "sem_imgs/F14.png"},
-      {abbrev: "S17", name: "Spring 2017", image_path: "sem_imgs/F14.png"},
-      {abbrev: "F17", name: "Fall 2017", image_path: "sem_imgs/F14.png"},
-      {abbrev: "S18", name: "Spring 2018", image_path: "sem_imgs/F14.png"},
+      {abbrev: "F16", name: "Fall 2016", image_path: "sem_imgs/F16.png"},
+      {abbrev: "S17", name: "Spring 2017", image_path: "sem_imgs/S17.png"},
+      {abbrev: "F17", name: "Fall 2017", image_path: "sem_imgs/F17.png"},
+      {abbrev: "S18", name: "Spring 2018", image_path: "sem_imgs/S18.png"},
     ]
 
     this.display_courses = {};
@@ -203,7 +203,7 @@ class Coursework extends React.Component {
     let cname, c_pos;
     let expanded = this.state.expanded;
     if (expanded){
-      cname = "modal is-active";
+      cname = "container modal animated fadeIn is-active";
       c_pos = "modal-card wide";
     } else {
       return;
@@ -259,19 +259,11 @@ class Coursework extends React.Component {
             </select>
           </div>
           <div className={col_class}>
-            {this.departments.slice(0, 4).map(dept => this.render_department_card(dept))}
+            {this.departments.slice(0, 8).map(dept => this.render_department_card(dept))}
           </div>
           <br/>
           <div className={col_class}>
-            {this.departments.slice(4, 8).map(dept => this.render_department_card(dept))}
-          </div>
-          <br/>
-          <div className={col_class}>
-            {this.departments.slice(8, 12).map(dept => this.render_department_card(dept))}
-          </div>
-          <br/>
-          <div className={col_class}>
-            {this.departments.slice(12, 16).map(dept => this.render_department_card(dept))}
+            {this.departments.slice(8, 16).map(dept => this.render_department_card(dept))}
           </div>
           {this.render_expanded()}
         </div>

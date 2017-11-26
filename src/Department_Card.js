@@ -29,16 +29,8 @@ class Department_Card extends React.Component {
             </figure>
           </div>
           <div className="card-content">
-            <div className="content columns">
-            <div className="column bottomless">
-              <p className="pname is-size-5"><b>{this.department.name}</b></p>
-              <br/>
-            </div>
-            <div className="column bottomless">
-              <p className="pname is-size-5"><b>{this.department.abbrev}</b></p>
-              {this.department.description}
-              <br/>
-            </div>
+            <div className="content bottomless">
+              <p className="pname is-size-4">{this.department.name}</p>
             </div>
           </div>
         </div>
