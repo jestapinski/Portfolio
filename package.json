@@ -15,7 +15,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://jestapinski.github.io/portfolio",
+  "homepage": "https://jestapinski.github.io/Portfolio",
   "devDependencies": {
     "gh-pages": "^1.1.0"
   }
