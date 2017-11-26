@@ -8,10 +8,15 @@
     "react-scripts": "1.0.16"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://jestapinski.github.io/portfolio"
+  "homepage": "https://jestapinski.github.io/portfolio",
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
 }
