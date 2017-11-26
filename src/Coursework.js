@@ -8,6 +8,8 @@
 
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Department_Card from './Department_Card.js'
+import Semester_Card from './Semester_Card.js'
 import './App.css';
 
 class Coursework extends React.Component {
@@ -70,15 +72,37 @@ class Coursework extends React.Component {
       {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX'},
     ];
 
+    this.semesters = [
+      {abbrev: "F14", name: "Fall 2014", image_path: "sem_imgs/F14.png"},
+      {abbrev: "S15", name: "Spring 2015", image_path: "sem_imgs/S15.png"},
+      {abbrev: "F15", name: "Fall 2015", image_path: "sem_imgs/F15.png"},
+      {abbrev: "S16", name: "Spring 2016", image_path: "sem_imgs/S16.png"},
+      {abbrev: "F16", name: "Fall 2016", image_path: "sem_imgs/F14.png"},
+      {abbrev: "S17", name: "Spring 2017", image_path: "sem_imgs/F14.png"},
+      {abbrev: "F17", name: "Fall 2017", image_path: "sem_imgs/F14.png"},
+      {abbrev: "S18", name: "Spring 2018", image_path: "sem_imgs/F14.png"},
+    ]
+
     this.display_courses = {};
 
     this.state = {
-      sorted: 'department'
+      sorted: 'department',
+      expanded: false
     };
 
     this.display_courses = this.group_courses();
 
     this.toggle_sorted = this.handle_change.bind(this);
+    this.handler = this.flip_expanded.bind(this);
+    this.clear = this.clear_expanded.bind(this);
+  }
+
+  flip_expanded(category){
+    this.setState({expanded: category});
+  }
+
+  clear_expanded(){
+    this.setState({expanded: false});
   }
 
   reduce_courses(prop){
@@ -106,12 +130,14 @@ class Coursework extends React.Component {
     }
   }
 
-  render_department_card(){
+  render_department_card(dept){
     // If the sort is by department, render department cards
+    return (<Department_Card department={dept} key={dept.name} handler={this.handler} />)
   }
 
-  render_semester_card(){
+  render_semester_card(sem){
     // If the sort is by semester, render semester cards
+    return (<Semester_Card semester={sem} key={sem.abbrev} handler={this.handler} />)
   }  
 
   render_table(){
@@ -173,12 +199,58 @@ class Coursework extends React.Component {
     this.group_courses();
   }
 
+  render_expanded(){
+    let cname, c_pos;
+    let expanded = this.state.expanded;
+    if (expanded){
+      cname = "modal is-active";
+      c_pos = "modal-card wide";
+    } else {
+      return;
+    }
+    return (
+      <div className={cname}>
+        <div className="modal-background" onClick={this.clear}></div>
+        <div className={c_pos}>
+          <header className="modal-card-head">
+            <p className="modal-card-title">{expanded.name}</p>
+            <button className="delete" aria-label="close" onClick={this.clear}></button>
+          </header>
+          <section className="modal-card-body">
+            <div className="columns">
+              <div className="column is-two-thirds">
+                <figure className="image is-4x3 centered">
+                </figure>
+              </div>
+              <div className="column">
+                <p className="is-size-3">{expanded.name}</p>
+                <p><i>{expanded.abbrev}</i></p>
+                <p><i>{expanded.description}</i></p>
+                <br/>
+              </div>
+            </div>
+            <p className="is-size-3">Description</p>
+            <p className="is-size-6">{expanded.description}</p>
+          </section>
+          <footer className="modal-card-foot">
+          </footer>
+        </div>
+      </div>
+    )
+  }
+
   render(){
+    let col_class = 'columns';
+    if (this.state.expanded){
+      col_class = 'columns semi-opaque';
+    }
+    this.group_courses();
+    if (this.state.sorted === 'department'){
       return (
         <div className="container">
-	        <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
-	            Coursework
-	        </h2>
+          <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+              Coursework
+          </h2>
           <label className="label is-size-5">Group By:</label>
           <div className="select">
             <select onChange={this.toggle_sorted}>
@@ -186,6 +258,45 @@ class Coursework extends React.Component {
               <option>Semester</option>
             </select>
           </div>
+          <div className={col_class}>
+            {this.departments.slice(0, 4).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+          <div className={col_class}>
+            {this.departments.slice(4, 8).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+          <div className={col_class}>
+            {this.departments.slice(8, 12).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+          <div className={col_class}>
+            {this.departments.slice(12, 16).map(dept => this.render_department_card(dept))}
+          </div>
+          {this.render_expanded()}
+        </div>
+      );
+    }
+      return (
+        <div className="container">
+          <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+              Coursework
+          </h2>
+          <label className="label is-size-5">Group By:</label>
+          <div className="select">
+            <select onChange={this.toggle_sorted}>
+              <option>Department</option>
+              <option>Semester</option>
+            </select>
+          </div>
+          <div className={col_class}>
+            {this.semesters.slice(0, 4).map(sem => this.render_semester_card(sem))}
+          </div>
+          <br/>
+          <div className={col_class}>
+            {this.semesters.slice(4, 8).map(sem => this.render_semester_card(sem))}
+          </div>
+          {this.render_expanded()}
         </div>
       )
   }

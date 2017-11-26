@@ -61,7 +61,7 @@ class Experience extends React.Component {
     this.setState({expanded: false});
   }
 
-render_expanded(){
+  render_expanded(){
     let cname, c_pos;
     let expanded = this.state.expanded;
     if (expanded){

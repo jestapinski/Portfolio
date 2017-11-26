@@ -21,6 +21,10 @@
   color: var(--teal);
 }
 
+.select {
+  margin-bottom: 50px;
+}
+
 /*
   Force the card content to take the entire width of the card,
   and give some space.
