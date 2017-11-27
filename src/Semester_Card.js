@@ -1,15 +1,15 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   Semester_Card.js
 
   Renders an individual semester off of the Bulma CSS Card framework.
 */
 
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-class Semester_Card extends React.Component {
+class SemesterCard extends React.Component {
   constructor(props){
     super(props);
     console.log(props);
@@ -40,4 +40,4 @@ class Semester_Card extends React.Component {
   }
 }
 
-export default Semester_Card;
+export default SemesterCard;

@@ -1,6 +1,6 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   App.js
 
   Renders the React.JS application.
@@ -10,7 +10,6 @@
 */
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import 'bulma/css/bulma.css';
 import './App.css';
 import Header from './Header.js'
@@ -23,7 +22,7 @@ class App extends Component {
     // Keep the state of the website based on active footer tab
     this.state = {
       active: "About"
-    }
+    };
     // On a click, change this state to be the new tab (bind to pass state up)
     this.handler = this.handle_click.bind(this);
   }

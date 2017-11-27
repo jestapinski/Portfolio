@@ -1,11 +1,12 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   App.css
 
   Defines additional styling on top of Bulma CSS to be used.
 */
 
+/* Defining global color options as variables */
 :root{
   --teal: #6BBAA7;
   --purple: #6C648B;
@@ -13,14 +14,12 @@
   --off-yellow: #FBA100;
 }
 
+/* Defining the overall font family as Avenir */
 .App {
   font-family: 'Avenir';
 }
 
-.label {
-  color: var(--teal);
-}
-
+/* Provide some breathing room between the dropdown and content in coursework */
 .select {
   margin-bottom: 50px;
 }
@@ -37,121 +36,129 @@
   padding-top: 0px;
 }
 
+/* Give cards and their images a shadow for a better sense of realism */
 .card, .card-image{
   box-shadow: 3px 3px 2px #222222;
 }
 
+/* Align card text to the center and reduce padding */
 .card-content {
   text-align: center;
   padding: 1rem;
 }
 
+/* Remove bottom padding on card content and individual columns */
 .bottomless {
   padding-bottom: 0;
 }
 
+/* Remove bottom from project name in modal */
 .pname {
   margin-bottom: 0 !important;
 }
 
+/* Remove the grey background from the popup modals */
 .modal-background {
   background-color: transparent !important;
 }
 
+/* Define a somewhat opaque image */
 .semi-opaque {
   opacity: 0.4;
 }
 
+/* Position the modal card at certain points within the container */
 .modal-card {
   position: absolute !important;
-  left: 29.5%; /*8*/
+  left: 29.5%;
   top: 15%;
 }
 
+/* Change the animation of opening the modal */
 .modal {
   -webkit-animation-duration: 0.5s;
 }
 
+/* Specific positioning for leftmost modals */
 .mc-0 {
   left: 0%;
   top: 15%;
   width: 60%;
 }
 
+/* Specific positioning for second-column modals */
 .mc-1 {
   left: 25.5%;
   top: 15%;
   width: 60%;
 }
 
+/* Moving modals to take more screen space */
 .full {
   margin-top: -20%;
 }
 
+/* Move the navbar name text away from the top */
 .top-nav-link {
   padding-top: 10px;
   padding-right: 15px;
 }
 
+/* Make the logos for github, linkedin, and email uniform */
 .github-logo {
   height: 30px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
+/* Make text teal in color */
 .is-teal-text {
   color: var(--teal);
 }
 
+/* Change the navbar to be purple and sticky in front of content */
 .navbar {
   background-color: var(--purple) !important;
   position: fixed !important; top: 0; left: 0; right: 0; 
   z-index: 10;
 }
 
+/* Make modal cards large and almost full-container */
 .wide {
   left: 0%;
   width: 90%;
   height: 70%
 }
 
+/* Put some space between the top bar and body content */
 .hero-head {
   margin-top: 10px;
 }
 
+/* Change the footer to be black */
 .hero-foot {
   background-color: black !important;
 }
 
+/* Change the footer elements to be grey when not selected */
 .hero-foot li a {
   color: var(--off-grey);
 }
 
+/* Change the active text on the footer to be purple */
 .hero-foot li.is-active a {
   color: var(--purple);
 }
 
+/* Make text yellow */
 .is-deep-yellow {
   color: var(--off-yellow);
 }
 
+/* Make text white */
 .is-white {
   color: white;
 }
 
+/* Place a background image that can be written over */
 .bg-img { 
   background-position: center center;
   background-repeat:  no-repeat;
@@ -178,8 +185,4 @@
 
  #Coursework{
   background-image: url(coursework.png);
- }
-
-.hero-body {
-  flex: 1;
  }

@@ -1,13 +1,12 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   Body.js
 
   Renders the webpage body based on the state of the application.
 */
 
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import About from './About.js';
 import Projects from './Projects.js';
 import Experience from './Experience.js';
@@ -15,10 +14,6 @@ import Coursework from './Coursework.js';
 import './App.css';
 
 class Body extends React.Component {
-
-  constructor(props){
-    super(props)
-  }
 
 /*
   Choose the body content component to use based on which section

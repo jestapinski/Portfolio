@@ -1,6 +1,6 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   Projects.js
 
   Renders the body if the "Projects" tab is selected.
@@ -9,9 +9,8 @@
   Project Card Component.
 */
 
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import Project_Card from './Project_Card.js';
+import React from 'react';
+import ProjectCard from './Project_Card.js';
 import './App.css';
 
 class Projects extends React.Component {
@@ -24,10 +23,7 @@ class Projects extends React.Component {
         short_description: "Deploying hybrid education.",
         image_path: "project_imgs/enigma.png",
         dates: "May 2017 - August 2017",
-        description: "The Enigma Unit is an interactive look into the study of cryptography, and is designed to be used by high school students. The unit involves an in- depth but digestible look at several common cryptographic algorithms including:\
-          Caesar Shift, \
-          Vigenere Cipher, and\
-          Enigma Machine. Developed tool with the aid of EdTech experts at MongoDB and CS4ALL.",
+        description: "The Enigma Unit is an interactive look into the study of cryptography, and is designed to be used by high school students. The unit involves an in- depth but digestible look at several common cryptographic algorithms including: Caesar Shift, Vigenere Cipher, and Enigma Machine. Developed tool with the aid of EdTech experts at MongoDB and CS4ALL.",
         index: 0,
         resources: [
           {name: 'Github Repository', link: 'https://github.com/jestapinski/enigma_unit_csnyc'},
@@ -176,7 +172,7 @@ class Projects extends React.Component {
   object itself.
 */
   render_project(project){
-    return (<Project_Card project={project} key={project.name} handler={this.handler}/>)
+    return (<ProjectCard project={project} key={project.name} handler={this.handler}/>)
   }
 
   render_resource(resource){

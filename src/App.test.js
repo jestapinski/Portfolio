@@ -1,3 +1,5 @@
+// Sample test file created from create-react-app
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

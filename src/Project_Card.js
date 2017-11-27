@@ -1,15 +1,15 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   Project_Card.js
 
   Renders an individual project off of the Bulma CSS Card framework.
 */
 
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-class Project_Card extends React.Component {
+class ProjectCard extends React.Component {
   constructor(props){
     super(props);
     console.log(props);
@@ -43,4 +43,4 @@ class Project_Card extends React.Component {
   }
 }
 
-export default Project_Card;
+export default ProjectCard;

@@ -1,12 +1,12 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   SemesterExpanded.js
 
   Renders an individual semester expanded modal off of the Bulma CSS Card framework.
 */
 
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 class SemesterExpanded extends React.Component {

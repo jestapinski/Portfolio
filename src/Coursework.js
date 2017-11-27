@@ -1,15 +1,14 @@
 /*
   Jordan Stapinski (jstapins)
-  CMU PUI A6 - Project Portfolio
+  Personal Portfolio
   Coursework.js
 
   Renders the list of courses taken to the user.
 */
 
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import Department_Card from './Department_Card.js'
-import Semester_Card from './Semester_Card.js'
+import React from 'react';
+import DepartmentCard from './Department_Card.js'
+import SemesterCard from './Semester_Card.js'
 import DepartmentExpanded from './DepartmentExpanded.js'
 import SemesterExpanded from './SemesterExpanded.js'
 import './App.css';
@@ -18,6 +17,8 @@ class Coursework extends React.Component {
 
   constructor(props){
     super(props);
+
+    // Define courses as an array of JavaScript Objects with number, department, and title.
     this.courses = [
       {num: "15-110", dept: "CS",  sem: "F14", title: "Principles of Computing"},
       {num: "33-106", dept: "PHY", sem: "F14", title: "Physics I for Engineering Students"},
@@ -54,12 +55,13 @@ class Coursework extends React.Component {
       {num: "05-571", dept: "HCI", sem: "S18", title: "Undergraduate Project in Human-Computer Interaction"},
       {num: "67-364", dept: "IS",  sem: "S18", title: "Practical Data Science"},
       {num: "79-213", dept: "HIS", sem: "S18", title: "The American Railroad"},
-      {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"},
+      {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"}
     ];
 
+    // Define departments as an array of JavaScript Objects with abbreviation, name, description, and image_path.
     this.departments = [
       {abbrev: 'CS',  name: 'Computer Science', description: 'CMU 15-XXX', image_path: "dept_imgs/CS.png"},
-      {abbrev: 'IS', name: 'Information Systems', description: 'CMU 67-XXX', image_path: "dept_imgs/IS.png"},
+      {abbrev: 'IS',  name: 'Information Systems', description: 'CMU 67-XXX', image_path: "dept_imgs/IS.png"},
       {abbrev: 'HCI', name: 'Human-Computer Interaction', description: 'CMU 05-XXX', image_path: "dept_imgs/HCI.png"},
       {abbrev: 'STA', name: 'Statistics', description: 'CMU 36-XXX', image_path: "dept_imgs/STA.png"},
       {abbrev: 'ISR', name: 'Institute for Software Research', description: 'CMU 08-XXX', image_path: "dept_imgs/ISR.png"},
@@ -71,13 +73,20 @@ class Coursework extends React.Component {
       {abbrev: 'SDS', name: 'Social and Decision Sciences', description: 'CMU 88-XXX', image_path: "dept_imgs/SDS.png"},
       {abbrev: 'ENG', name: 'English', description: 'CMU 76-XXX', image_path: "dept_imgs/ENG.png"},
       {abbrev: 'MUS', name: 'Music', description: 'CMU 57-XXX', image_path: "dept_imgs/MUS.png"},
-      {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX', image_path: "dept_imgs/PHI.png"},
+      {abbrev: 'PHI', name: 'Philosophy', description: 'CMU 80-XXX', image_path: "dept_imgs/PHI.png"}
     ];
 
+    /* 
+      Create a version of departments which is a big dictionary with the key of the department abbreviation
+      This essentially will be used as a join operation when rendering course details to avoid abbreviations
+    */
     this.mapped_departments = {};
-    for (var i=0; i<this.departments.length; i++) {
-      this.mapped_departments[this.departments[i].abbrev] = {name: this.departments[i].name, description: this.departments[i].description};
-    }
+    for (let i=0; i<this.departments.length; i++) {
+      this.mapped_departments[this.departments[i].abbrev] = {
+          name: this.departments[i].name, 
+          description: this.departments[i].description
+      };
+    };
 
     this.semesters = [
       {abbrev: "F14", name: "Fall 2014", image_path: "sem_imgs/F14.png"},
@@ -88,144 +97,183 @@ class Coursework extends React.Component {
       {abbrev: "S17", name: "Spring 2017", image_path: "sem_imgs/S17.png"},
       {abbrev: "F17", name: "Fall 2017", image_path: "sem_imgs/F17.png"},
       {abbrev: "S18", name: "Spring 2018", image_path: "sem_imgs/S18.png"},
-    ]
+    ];
 
-    this.display_courses = {};
-
+    /* 
+      Create a version of semesters which is a big dictionary with the key of the semester abbreviation
+      This essentially will be used as a join operation when rendering course details to avoid abbreviations
+    */
     this.mapped_semesters = {};
-    for (var k = 0; k < this.semesters.length; k++){
+    for (let k = 0; k < this.semesters.length; k++){
       this.mapped_semesters[this.semesters[k].abbrev] = {name: this.semesters[k].name, description: this.semesters[k].description};
-    }
+    };
 
+    // Define the starting grouping of courses and none have been clicked
     this.state = {
       sorted: 'department',
       expanded: false
     };
 
+    // Create a dictionary of all of the courses based on the grouping selected
+    this.display_courses = {};
     this.display_courses = this.group_courses();
 
+    // Bind this class instance to several function handlers to render
     this.toggle_sorted = this.handle_change.bind(this);
     this.handler = this.flip_expanded.bind(this);
     this.clear = this.clear_expanded.bind(this);
   }
 
+  // Set the expanded modal to be a specific object
   flip_expanded(category){
     this.setState({expanded: category});
   }
 
+  // Clear the expanded object to return for another selection
   clear_expanded(){
     this.setState({expanded: false});
   }
 
+  // Group the courses according to the prop passed
   reduce_courses(prop){
     return this.courses.reduce(function(groups, item) {
           var val = item[prop];
           groups[val] = groups[val] || [];
           groups[val].push(item);
           return groups;
-        }, {});
+    }, {});
   }
 
+  // Case on sorted state (department, semester) and group courses
   group_courses(){
-    // Case on sorted state (department, semester)
     switch (this.state.sorted){
       case 'department':
         this.display_courses = this.reduce_courses('dept');
-        console.log(this.display_courses);
         return;
       case 'semester':
         this.display_courses = this.reduce_courses('sem');
-        console.log(this.display_courses);
         return;
       default:
         return;
     }
   }
 
+  // If the sort is by department, render department cards
   render_department_card(dept){
-    // If the sort is by department, render department cards
-    return (<Department_Card department={dept} key={dept.name} handler={this.handler} courses={this.display_courses[dept['abbrev']]} />)
+    return (<DepartmentCard 
+              department={dept} 
+              key={dept.name} 
+              handler={this.handler} 
+              courses={this.display_courses[dept.abbrev]} />);
   }
 
+  // If the sort is by semester, render semester cards
   render_semester_card(sem){
-    // If the sort is by semester, render semester cards
-    return (<Semester_Card semester={sem} key={sem.abbrev} handler={this.handler} courses={this.display_courses[sem['abbrev']]} />)
+    return (<SemesterCard 
+              semester={sem} 
+              key={sem.abbrev} 
+              handler={this.handler} 
+              courses={this.display_courses[sem.abbrev]} />);
   }  
 
+  // Switch the sort value based on a user selection and re-sort courses
   handle_change(event) {
     this.setState({sorted: event.target.value.toLowerCase()});
     this.group_courses();
   }
 
+  // Render the popup modal differently based on how it is grouped
   render_expanded(){
     if (this.state.expanded){
       switch (this.state.sorted){
         case 'department':
-          return (<DepartmentExpanded expanded={this.state.expanded} clear={this.clear} courses={this.display_courses[this.state.expanded['abbrev']]} sems={this.mapped_semesters} />);
+          return (<DepartmentExpanded 
+                    expanded={this.state.expanded} 
+                    clear={this.clear} 
+                    courses={this.display_courses[this.state.expanded.abbrev]} 
+                    sems={this.mapped_semesters} />);
         case 'semester':
-          return (<SemesterExpanded expanded={this.state.expanded} clear={this.clear} courses={this.display_courses[this.state.expanded['abbrev']]} depts={this.mapped_departments} />);
+          return (<SemesterExpanded 
+                    expanded={this.state.expanded} 
+                    clear={this.clear} 
+                    courses={this.display_courses[this.state.expanded.abbrev]} 
+                    depts={this.mapped_departments} />);
         default:
           return;
       }      
     }
   }
 
+  render_cards(col_class){
+    let first_row_size = 4;
+    let offset_size = 4;
+    if (this.state.sorted === 'department'){
+      // After the first row, have five cards per row
+      offset_size = 5;
+      return (
+        <div>
+
+          <div className={col_class}>
+            {this.departments.slice(0, first_row_size).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+
+          <div className={col_class}>
+            {this.departments.slice(first_row_size, 
+              first_row_size + offset_size).map(dept => this.render_department_card(dept))}
+          </div>
+          <br/>
+
+          <div className={col_class}>
+            {this.departments.slice(first_row_size + offset_size, 
+              first_row_size + 2 * offset_size).map(dept => this.render_department_card(dept))}
+          </div>
+
+          {this.render_expanded()}
+        </div>
+      );
+    }; 
+    return (
+      <div>
+
+        <div className={col_class}>
+          {this.semesters.slice(0, first_row_size).map(sem => this.render_semester_card(sem))}
+        </div>
+        <br/>
+
+        <div className={col_class}>
+          {this.semesters.slice(first_row_size, first_row_size + offset_size).map(sem => this.render_semester_card(sem))}
+        </div>
+        
+        {this.render_expanded()}
+      </div>
+    ); 
+  }
+
+  // Render the course groupings
   render(){
+    // If a modal is shown, make the other cards opaque
     let col_class = 'columns';
     if (this.state.expanded){
       col_class = 'columns semi-opaque';
     }
+    // Re-group the courses
     this.group_courses();
-    if (this.state.sorted === 'department'){
-      return (
-        <div className="container">
-          <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
-              Coursework
-          </h2>
-          <label className="label is-size-5">Group By:</label>
-          <div className="select">
-            <select onChange={this.toggle_sorted}>
-              <option>Department</option>
-              <option>Semester</option>
-            </select>
-          </div>
-          <div className={col_class}>
-            {this.departments.slice(0, 4).map(dept => this.render_department_card(dept))}
-          </div>
-          <br/>
-          <div className={col_class}>
-            {this.departments.slice(4, 9).map(dept => this.render_department_card(dept))}
-          </div>
-          <br/>
-          <div className={col_class}>
-            {this.departments.slice(9, 15).map(dept => this.render_department_card(dept))}
-          </div>
-          {this.render_expanded()}
+    return (
+      <div className="container">
+        <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+            Coursework
+        </h2>
+        <label className="label is-size-5 is-teal-text">Group By:</label>
+        <div className="select">
+          <select onChange={this.toggle_sorted}>
+            <option>Department</option>
+            <option>Semester</option>
+          </select>
         </div>
-      );
-    }
-      return (
-        <div className="container">
-          <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
-              Coursework
-          </h2>
-          <label className="label is-size-5">Group By:</label>
-          <div className="select">
-            <select onChange={this.toggle_sorted}>
-              <option>Department</option>
-              <option>Semester</option>
-            </select>
-          </div>
-          <div className={col_class}>
-            {this.semesters.slice(0, 4).map(sem => this.render_semester_card(sem))}
-          </div>
-          <br/>
-          <div className={col_class}>
-            {this.semesters.slice(4, 8).map(sem => this.render_semester_card(sem))}
-          </div>
-          {this.render_expanded()}
-        </div>
-      )
+        {this.render_cards(col_class)}
+      </div>
+    );
   }
 }
 
