@@ -11,6 +11,7 @@ import './App.css';
 
 class DepartmentExpanded extends React.Component {
 
+  // Renders an individual course as a table row
   render_course(course){
     return (
       <tr>
@@ -21,6 +22,7 @@ class DepartmentExpanded extends React.Component {
     );
   }
 
+  // Render the table of courses to be shown in the modal
   render_table(){
     let headers = Object.keys(this.props.courses[0]);
     headers.splice(2, 1); //Get rid of 'Department'

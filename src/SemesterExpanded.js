@@ -10,13 +10,8 @@ import React from 'react';
 import './App.css';
 
 class SemesterExpanded extends React.Component {
-  constructor(props){
-    super(props);
-    console.log(props);
-    // Reassign prop project for quicker access
-    this.clear = this.props.clear;
-  }
 
+  // Render an individual course as a row in the table
   render_course(course){
     return (
       <tr>
@@ -27,9 +22,11 @@ class SemesterExpanded extends React.Component {
     )
   }
 
+  // Render the table of courses to be shown in the modal
   render_table(){
     let headers = Object.keys(this.props.courses[0]);
-    headers.splice(2, 1);
+    headers.splice(2, 1); // Get rid of "semester"
+    // Render the table of courses
     return (
       <table className="table is-striped">
         <thead>
@@ -39,8 +36,7 @@ class SemesterExpanded extends React.Component {
             <th>Course Title</th>
           </tr>
         </thead>
-        <tfoot>
-        </tfoot>
+        <tfoot></tfoot>
         <tbody>
           {this.props.courses.map(course => (this.render_course(course)))}
         </tbody>
@@ -48,21 +44,20 @@ class SemesterExpanded extends React.Component {
     )
   }
 
-/*
-  Renders the semester card.
-*/
+  // Renders the semester modal.
   render(){
     let expanded = this.props.expanded;
-    let cname = "container modal animated fadeIn is-active";
-    let c_pos = "modal-card wide";
     return (
-      <div className={cname}>
-        <div className="modal-background" onClick={this.clear}></div>
-        <div className={c_pos}>
+      <div className="container modal animated fadeIn is-active">
+        <div className="modal-background" onClick={this.props.clear}></div>
+
+        <div className="modal-card wide">
+
           <header className="modal-card-head">
             <p className="modal-card-title">{expanded.name}</p>
-            <button className="delete" aria-label="close" onClick={this.clear}></button>
+            <button className="delete" aria-label="close" onClick={this.props.clear}></button>
           </header>
+
           <section className="modal-card-body">
             <div className="columns">
               <div className="column is-one-third">
@@ -78,11 +73,13 @@ class SemesterExpanded extends React.Component {
               </div>
             </div>
           </section>
+
           <footer className="modal-card-foot">
           </footer>
         </div>
+
       </div>
-    )
+    );
   }
 }
 

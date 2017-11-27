@@ -5,6 +5,7 @@
 
   Outlines the hero header for the portfolio website, including links.
 */
+
 import React from 'react';
 import './App.css';
 
@@ -37,8 +38,8 @@ class Header extends React.Component {
           </div>
         </div>
       </div>
-    )
-  };
+    );
+  }
 }
 
 export default Header;

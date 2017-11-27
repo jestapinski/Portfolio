@@ -16,6 +16,7 @@ import './App.css';
 class Projects extends React.Component {
   constructor(props){
     super(props);
+
     // Define projects to be in the upper row of projects
     this.upper_projects = [
       { 
@@ -87,6 +88,7 @@ class Projects extends React.Component {
         ]  
       }
     ];
+
     // Define projects to be in the lower row of projects
     this.lower_projects = [
       { 
@@ -152,17 +154,23 @@ class Projects extends React.Component {
         ]  
       }
     ];
+
+    // Define the state to be whether a project has been selected to expand or not
     this.state = {
       expanded: false
     };
+
+    // Bind handlers to this class instance
     this.handler = this.flip_expanded.bind(this);
     this.clear = this.clear_expanded.bind(this);
   }
 
+  // Set the expanded modal to be a specific object
   flip_expanded(project){
     this.setState({expanded: project});
   }
 
+  // Clear the expanded object to return for another selection
   clear_expanded(){
     this.setState({expanded: false});
   }
@@ -172,19 +180,17 @@ class Projects extends React.Component {
   object itself.
 */
   render_project(project){
-    return (<ProjectCard project={project} key={project.name} handler={this.handler}/>)
+    return (<ProjectCard project={project} key={project.name} handler={this.handler}/>);
   }
 
+  // Render a resource as a link
   render_resource(resource){
-    return (
-      <p><a href={resource.link}>{resource.name}</a></p>
-    )
+    return (<p><a href={resource.link}>{resource.name}</a></p>);
   }
 
+  // Render a software stack element as a list element
   render_stack(software){
-    return (
-      <li>{software}</li>
-    )
+    return (<li>{software}</li>);
   }
 
   render_expanded(){
@@ -199,13 +205,17 @@ class Projects extends React.Component {
     return (
       <div className={cname}>
         <div className="modal-background" onClick={this.clear}></div>
+
         <div className={c_pos}>
+        
           <header className="modal-card-head">
             <p className="modal-card-title">{expanded.name}</p>
             <button className="delete" aria-label="close" onClick={this.clear}></button>
           </header>
+
           <section className="modal-card-body">
             <div className="columns">
+
               <div className="column is-one-third">
                 <figure className="image is-128x128 centered">
                   <img src={expanded.image_path} alt={expanded.name}/>
@@ -213,6 +223,7 @@ class Projects extends React.Component {
                 <p className="is-size-4">Resources</p>
                 {expanded.resources.map(resource => this.render_resource(resource))}
               </div>
+
               <div className="column">
                 <p className="is-size-3">{expanded.name}</p>
                 <p><i>{expanded.short_description}</i></p>
@@ -226,19 +237,20 @@ class Projects extends React.Component {
                   {expanded.soft_stack.map(soft => this.render_stack(soft))}
                 </ol>
               </div>
+
             </div>
           </section>
           <footer className="modal-card-foot">
           </footer>
         </div>
+
       </div>
     )
   }
 
-/*
-  Renders the projects main body, with a title and two rows of projects.
-*/
+  // Renders the projects main body, with a title and two rows of projects.
   render(){
+    // If there is a modal being shown, opaque out the cards for emphasis
     let col_class = 'columns';
     if (this.state.expanded){
       col_class = 'columns semi-opaque';
@@ -257,7 +269,7 @@ class Projects extends React.Component {
         </div>
         {this.render_expanded()}
       </div>
-    )
+    );
   }
 }
 

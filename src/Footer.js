@@ -1,45 +1,51 @@
+/*
+  Jordan Stapinski (jstapins)
+  Personal Portfolio
+  Footer.js
+
+  Outlines the hero footer for the portfolio website, passing the active body prop up to the App component.
+*/
+
 import React from 'react';
 import './App.css';
 
 class Footer extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
-    this.main_routes = [
-      { path: "/",           name: "About",            btnType: "primary"},
-      { path: "/projects",      name: "Projects",           btnType: "info"},
-      { path: "/experience",  name: "Professional Experience", btnType: "info"},
-      { path: "/coursework",  name: "Coursework", btnType: "info"}      
-    ]
+    // Define the tabbed routes for the footer
+    this.main_routes = ["About", "Projects", "Professional Experience", "Coursework"];
   }
 
-  render_tab(route){
-    const name = route.name
+  // Render one of the tabs in the footer
+  render_tab(name){
+    // Change background and text color if active for UX
     if (this.props.active === name){
-      return <li 
+      return (<li 
         className='is-active' 
         key={name} 
         onClick={() => this.props.handle_click(name)}>
-        <a>{name}</a></li>
+        <a>{name}</a></li>);
     }
-    return <li key={name} onClick={() => this.props.handle_click(name)}><a>{name}</a></li>;
+    return (<li 
+              key={name} 
+              onClick={() => this.props.handle_click(name)}>
+              <a>{name}</a>
+            </li>);
   }
 
+  // Render the entire hero footer
   render(){
     return (
       <div className="hero-foot">
         <nav className="tabs is-boxed is-fullwidth">
           <div className="container">
             <ul>
-              {this.main_routes.map(route => 
-                this.render_tab(route)
-                )
-              }
+              {this.main_routes.map(route => this.render_tab(route))}
             </ul>
           </div>
         </nav>
       </div>
-      )
+    );
   }
 }
 

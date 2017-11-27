@@ -80,6 +80,7 @@ class Experience extends React.Component {
     this.setState({expanded: false});
   }
 
+  // Render a modal for the professional experience if one has been selected
   render_expanded(){
     let expanded = this.state.expanded;
     if (!expanded){
@@ -128,7 +129,7 @@ class Experience extends React.Component {
         </div>
 
       </div>
-    )
+    );
   }
 
 /*
@@ -136,9 +137,10 @@ class Experience extends React.Component {
   object itself.
 */
   render_experience(experience){
-    return (<ExperienceCard experience={experience} key={experience.dates} handler={this.handler}/>)
+    return (<ExperienceCard experience={experience} key={experience.dates} handler={this.handler}/>);
   }
 
+  // Render the professional experience rows and modal, if necessary
   render(){
     let col_class = 'columns';
     if (this.state.expanded){
@@ -162,7 +164,7 @@ class Experience extends React.Component {
 
         {this.render_expanded()}
       </div>
-    )
+    );
   }
 }
 
