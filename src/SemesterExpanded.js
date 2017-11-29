@@ -51,7 +51,7 @@ class SemesterExpanded extends React.Component {
       <div className="container modal animated fadeIn is-active">
         <div className="modal-background" onClick={this.props.clear}></div>
 
-        <div className="modal-card wide">
+        <div className="modal-card wide tall">
 
           <header className="modal-card-head">
             <p className="modal-card-title">{expanded.name}</p>

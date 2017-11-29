@@ -93,13 +93,35 @@
 
 /* Specific positioning for leftmost modals */
 .mc-0, .mc-1, .mc-2, .mc-3 {
-  left: 0%;
+  left: 2%;
   top: 15%;
   width: 90%;
   height: 80%;
 }
 
-@media screen and (min-width: 768px) {
+.navbar-end {
+  float: right;
+  padding-top: 1%;
+}
+
+.navbar-start {
+  display: inline-block;
+  width: 60%;
+  padding-left: 3%;
+  padding-top: 1%;
+}
+
+/* Make modal cards large and almost full-container */
+.wide {
+  left: 2%;
+  width: 90%;
+}
+
+.tall {
+  height: 70%;
+}
+
+@media screen and (min-width: 801px) {
 
   /* Specific positioning for leftmost modals */
   .mc-0 {
@@ -136,6 +158,23 @@
   .only-on-mobile {
     display: none !important;
   }
+
+  .navbar-end {
+    display: unset;
+    float: unset;
+  }
+
+  .navbar-start {
+    display: unset;
+    width: unset;
+    padding-left: unset;
+    padding-top: unset;
+  }
+
+  .tall {
+    left: 2%;
+    height: 70%;
+  }
 }
 
 /* Moving modals to take more screen space */
@@ -164,13 +203,6 @@
   background-color: var(--purple) !important;
   position: fixed !important; top: 0; left: 0; right: 0; 
   z-index: 10;
-}
-
-/* Make modal cards large and almost full-container */
-.wide {
-  left: 0%;
-  width: 90%;
-  height: 70%
 }
 
 /* Put some space between the top bar and body content */

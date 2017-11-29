@@ -94,7 +94,7 @@ class Experience extends React.Component {
       <div className="container modal animated fadeIn is-active">
         <div className="modal-background" onClick={this.clear}></div>
 
-        <div className="modal-card wide">
+        <div className="modal-card mc-0 wide">
           <header className="modal-card-head">
             <p className="modal-card-title">{expanded.corp} - {expanded.position}</p>
             <button className="delete" aria-label="close" onClick={this.clear}></button>

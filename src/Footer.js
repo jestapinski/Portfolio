@@ -14,7 +14,7 @@ class Footer extends React.Component {
     super(props);
     // Define the tabbed routes for the footer
     this.main_routes = ["About", "Projects", "Professional Experience", "Coursework"];
-    this.mobile_width = 768;
+    this.mobile_width = 850;
   }
 
   handle_experience(){
