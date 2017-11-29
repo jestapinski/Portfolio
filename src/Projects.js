@@ -185,7 +185,7 @@ class Projects extends React.Component {
 
   // Render a resource as a link
   render_resource(resource){
-    return (<p><a href={resource.link}>{resource.name}</a></p>);
+    return (<p><a href={resource.link} target="_blank">{resource.name}</a></p>);
   }
 
   // Render a software stack element as a list element
@@ -198,7 +198,7 @@ class Projects extends React.Component {
     let expanded = this.state.expanded;
     if (expanded){
       cname = "container animated fadeIn modal is-active";
-      c_pos = "modal-card mc-" + expanded.index.toString();
+      c_pos = "modal-card mc-" + (expanded.index % 4).toString();
     } else {
       return;
     }
@@ -221,6 +221,7 @@ class Projects extends React.Component {
                   <img src={expanded.image_path} alt={expanded.name}/>
                 </figure>
                 <p className="is-size-4">Resources</p>
+                {(expanded.resources.length === 0) ? "No Resources for this Project" : ""}
                 {expanded.resources.map(resource => this.render_resource(resource))}
               </div>
 

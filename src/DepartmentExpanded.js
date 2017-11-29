@@ -67,8 +67,7 @@ class DepartmentExpanded extends React.Component {
               </div>
               <div className="column">
                 <p className="is-size-3">{expanded.name}</p>
-                <p><i>{expanded.abbrev}</i></p>
-                <p><i>{expanded.description}</i></p>
+                <p><i>{expanded.abbrev} - {expanded.description}</i></p>
                 <br/>
                 {this.render_table()}
               </div>

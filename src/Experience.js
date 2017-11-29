@@ -25,7 +25,7 @@ class Experience extends React.Component {
         short_description: "Tools for Teaching CS",
         image_path: "exp_imgs/mongo.png",
         location: "New York, NY",
-        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Materialize CSS", "Product Management", "Teamwork", "Presentation Skills"],
+        skills: ["MongoDB", "Node.JS", "ReactJS", "Bulma CSS", "Product Management", "Teamwork", "Presentation Skills"],
         description: "At MongoDB, I served as a software engineeing intern as part of the Education Team, a group responsible for maintaining online code documentation and certification materials. My initial seven weeks at MongoDB were spent implementing an application which combined the studies of history and cryptography in an interactive web application, part of a partnership with the local CSNYC organization. I then worked to develop a centralized hub for such web applications for better distribution into local schools."
       },
       { corp: "Carnegie Mellon University", 
@@ -80,6 +80,10 @@ class Experience extends React.Component {
     this.setState({expanded: false});
   }
 
+  render_skill(skill){
+    return (<p>{skill}</p>)
+  }
+
   // Render a modal for the professional experience if one has been selected
   render_expanded(){
     let expanded = this.state.expanded;
@@ -99,9 +103,12 @@ class Experience extends React.Component {
           <section className="modal-card-body">
             <div className="columns">
               <div className="column is-two-thirds">
-                <figure className="image is-4x3 centered">
+                <figure className="image is-16x9 centered">
                   <img src={expanded.image_path} alt={expanded.corp}/>
                 </figure>
+                <br/>
+                <p className="is-size-3">Description</p>
+                <p className="is-size-6">{expanded.description}</p>
               </div>
               <div className="column">
 
@@ -115,13 +122,9 @@ class Experience extends React.Component {
                 <br/>
 
                 <p className="is-size-4">Skills Obtained</p>
-                <p>{expanded.skills}</p>
-                <br/>
-
+                {expanded.skills.map(skill => this.render_skill(skill))}
               </div>
             </div>
-            <p className="is-size-3">Description</p>
-            <p className="is-size-6">{expanded.description}</p>
           </section>
 
           <footer className="modal-card-foot">

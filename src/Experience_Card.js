@@ -21,7 +21,7 @@ class ExperienceCard extends React.Component {
   // Renders the experience card.
   render(){
     return (
-        <div className="card column animated fadeInUp" onClick={this.flip_handler}>
+        <div className="card column animated fadeInUp post-card" onClick={this.flip_handler}>
           <div className="card-image">
             <figure className="image is-4x3">
               <img src={this.experience.image_path} alt={this.experience.corp}/>

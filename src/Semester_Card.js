@@ -20,7 +20,7 @@ class SemesterCard extends React.Component {
   // Renders the semester card.
   render(){
     return (
-        <div className="card column animated fadeInUp" onClick={this.flip_handler}>
+        <div className="card column animated fadeInUp post-card" onClick={this.flip_handler}>
 
           <div className="card-image">
             <figure className="image is-square">

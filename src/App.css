@@ -57,6 +57,10 @@
   margin-bottom: 0 !important;
 }
 
+.post-card {
+  margin-bottom: 10px !important;
+}
+
 /* Remove the grey background from the popup modals */
 .modal-background {
   background-color: transparent !important;
@@ -79,18 +83,59 @@
   -webkit-animation-duration: 0.5s;
 }
 
-/* Specific positioning for leftmost modals */
-.mc-0 {
-  left: 0%;
-  top: 15%;
-  width: 60%;
+.not-on-mobile {
+  display: none !important;
 }
 
-/* Specific positioning for second-column modals */
-.mc-1 {
-  left: 25.5%;
+.only-on-mobile {
+  display: unset !important;
+}
+
+/* Specific positioning for leftmost modals */
+.mc-0, .mc-1, .mc-2, .mc-3 {
+  left: 0%;
   top: 15%;
-  width: 60%;
+  width: 90%;
+  height: 80%;
+}
+
+@media screen and (min-width: 768px) {
+
+  /* Specific positioning for leftmost modals */
+  .mc-0 {
+    left: 0%;
+    top: 15%;
+    width: 60%;
+  }
+
+  /* Specific positioning for second-column modals */
+  .mc-1 {
+    left: 25.5%;
+    top: 15%;
+    width: 60%;
+  }
+
+  /* Specific positioning for third-column modals */
+  .mc-2 {
+    left: 15%;
+    top: 15%;
+    width: 60%;
+  }
+
+  /* Specific positioning for final-column modals */
+  .mc-3 {
+    left: 40.5%;
+    top: 15%;
+    width: 60%;
+  }
+
+  .not-on-mobile {
+    display: unset !important;
+  }
+
+  .only-on-mobile {
+    display: none !important;
+  }
 }
 
 /* Moving modals to take more screen space */

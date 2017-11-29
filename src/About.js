@@ -21,7 +21,7 @@ class About extends React.Component {
               I Live to Make an Impact.
           </h2>
           {/* Define the main body text for the About/Splash section */}
-          <p className="animated subtitle fadeInUp is-5 is-white">
+          <p className="animated subtitle fadeInUp is-5 is-white not-on-mobile">
             I am a senior at Carnegie Mellon University pursuing a double-major in Information Systems and Human-Computer Interaction, with a minor in Computer Science.
             <br/><br/>
             The focus of my work has been in technical education. 
