@@ -114,7 +114,7 @@
 /* Make modal cards large and almost full-container */
 .wide {
   left: 2%;
-  width: 90%;
+  width: 90% !important;
 }
 
 .tall {
