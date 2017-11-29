@@ -184,13 +184,13 @@ class Projects extends React.Component {
   }
 
   // Render a resource as a link
-  render_resource(resource){
-    return (<p><a href={resource.link} target="_blank">{resource.name}</a></p>);
+  render_resource(resource, index){
+    return (<p><a href={resource.link} target="_blank" key={index}>{resource.name}</a></p>);
   }
 
   // Render a software stack element as a list element
-  render_stack(software){
-    return (<li>{software}</li>);
+  render_stack(software, index){
+    return (<li key={index}>{software}</li>);
   }
 
   render_expanded(){
@@ -222,7 +222,7 @@ class Projects extends React.Component {
                 </figure>
                 <p className="is-size-4">Resources</p>
                 {(expanded.resources.length === 0) ? "No Resources for this Project" : ""}
-                {expanded.resources.map(resource => this.render_resource(resource))}
+                {expanded.resources.map((resource, index) => this.render_resource(resource, index))}
               </div>
 
               <div className="column">
@@ -235,7 +235,7 @@ class Projects extends React.Component {
                 <br/>
                 <p className="is-size-4">Software Stack</p>
                 <ol>
-                  {expanded.soft_stack.map(soft => this.render_stack(soft))}
+                  {expanded.soft_stack.map((soft, index) => this.render_stack(soft, index))}
                 </ol>
               </div>
 

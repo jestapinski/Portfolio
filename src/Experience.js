@@ -80,8 +80,8 @@ class Experience extends React.Component {
     this.setState({expanded: false});
   }
 
-  render_skill(skill){
-    return (<p>{skill}</p>)
+  render_skill(skill, index){
+    return (<p key={index}>{skill}</p>)
   }
 
   // Render a modal for the professional experience if one has been selected
@@ -122,7 +122,7 @@ class Experience extends React.Component {
                 <br/>
 
                 <p className="is-size-4">Skills Obtained</p>
-                {expanded.skills.map(skill => this.render_skill(skill))}
+                {expanded.skills.map((skill, index) => this.render_skill(skill, index))}
               </div>
             </div>
           </section>

@@ -189,12 +189,14 @@ class Coursework extends React.Component {
         case 'department':
           return (<DepartmentExpanded 
                     expanded={this.state.expanded} 
+                    key={this.state.expanded.num}
                     clear={this.clear} 
                     courses={this.display_courses[this.state.expanded.abbrev]} 
                     sems={this.mapped_semesters} />);
         case 'semester':
           return (<SemesterExpanded 
                     expanded={this.state.expanded} 
+                    key={this.state.expanded.num}
                     clear={this.clear} 
                     courses={this.display_courses[this.state.expanded.abbrev]} 
                     depts={this.mapped_departments} />);

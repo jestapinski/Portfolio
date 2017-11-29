@@ -12,9 +12,9 @@ import './App.css';
 class SemesterExpanded extends React.Component {
 
   // Render an individual course as a row in the table
-  render_course(course){
+  render_course(course, index){
     return (
-      <tr>
+      <tr key={index}>
         <th>{course.num}</th>
         <td>{this.props.depts[course.dept].name}</td>
         <td>{course.title}</td>
@@ -38,7 +38,7 @@ class SemesterExpanded extends React.Component {
         </thead>
         <tfoot></tfoot>
         <tbody>
-          {this.props.courses.map(course => (this.render_course(course)))}
+          {this.props.courses.map((course, index) => (this.render_course(course, index)))}
         </tbody>
       </table>
     )
