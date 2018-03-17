@@ -24,6 +24,10 @@ class Header extends React.Component {
             </div>
             {/* Place Picture Links on the right side of the navbar */}
             <div className="navbar-end">
+              <a href="resume.pdf" target="_blank" className="top-nav-link">
+                <img src="resume.png" className="github-logo" alt="Resume" />
+              </a>
+
               <a href="https://www.github.com/jestapinski" className="top-nav-link">
                 <img src="github.png" className="github-logo" alt="GitHub" />
               </a>

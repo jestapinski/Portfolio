@@ -152,6 +152,20 @@ class Projects extends React.Component {
           'Ruby (for Stripe server)',
           'Heroku'
         ]  
+      },
+            { 
+        name: "Harman Capstone Project", 
+        short_description: "Improving UX inside autonomous vehicles.",
+        image_path: "project_imgs/harman_logo.png",
+        dates: "January 2018 - August 2018",
+        description: "Using primary and secondary research to fuel the creation of a new product or service to be placed inside level 3/4 autonomous vehicles.",
+        index: 8,
+        resources: [
+          {name: 'Blog', link: 'link tbd'}
+        ],
+        soft_stack: [
+          'TBD'
+        ]  
       }
     ];
 

@@ -51,10 +51,10 @@ class Coursework extends React.Component {
       {num: "05-430", dept: "HCI", sem: "F17", title: "Programming Usable Interfaces"},
       {num: "67-276", dept: "IS",  sem: "F17", title: "Building Better Web Apps"},
       {num: "67-344", dept: "IS",  sem: "F17", title: "Organizational Intelligence in the Information Age"},
-      {num: "67-495", dept: "IS",  sem: "F17", title: "Advanced Projects in Information Systems"},
-      {num: "05-571", dept: "HCI", sem: "S18", title: "Undergraduate Project in Human-Computer Interaction"},
+      {num: "67-495", dept: "IS",  sem: "F17", title: "Web Application Course Redesign Independent Study"},
+      {num: "05-671", dept: "HCI", sem: "S18", title: "Master's Project in Human-Computer Interaction I"},
       {num: "67-364", dept: "IS",  sem: "S18", title: "Practical Data Science"},
-      {num: "79-213", dept: "HIS", sem: "S18", title: "The American Railroad"},
+      {num: "67-392", dept: "IS", sem: "S18", title: "iOS Course Redesign Independent Study"},
       {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"}
     ];
 
