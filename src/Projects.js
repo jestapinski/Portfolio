@@ -272,7 +272,7 @@ class Projects extends React.Component {
     }
     return (
       <div className="container">
-        <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+        <h2 className="animated title is-1 fadeInUp is-spaced is-snow-white">
             Significant Projects
         </h2>
         <div className={col_class}>

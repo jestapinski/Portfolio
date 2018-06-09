@@ -152,7 +152,7 @@ class Experience extends React.Component {
     return (
       <div className="container">
 
-        <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+        <h2 className="animated title is-1 fadeInUp is-spaced is-snow-white">
             Professional Experience
         </h2>
 

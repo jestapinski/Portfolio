@@ -263,7 +263,7 @@ class Coursework extends React.Component {
     this.group_courses();
     return (
       <div className="container">
-        <h2 className="animated title is-1 fadeInUp is-spaced is-deep-yellow">
+        <h2 className="animated title is-1 fadeInUp is-spaced is-snow-white">
             Coursework
         </h2>
         <label className="label is-size-5 is-teal-text">Group By:</label>

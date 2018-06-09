@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <section className="hero is-fullheight">
-          <Header />
+          <Header active={this.state.active} handle_click={this.handler}/>
           <Body active={this.state.active}/>
           <Footer active={this.state.active} handle_click={this.handler} />
         </section>

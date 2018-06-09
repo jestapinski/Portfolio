@@ -8,8 +8,8 @@
 
 /* Defining global color options as variables */
 :root{
-  --teal: #6BBAA7;
-  --purple: #6C648B;
+  --teal: #1ED2F4;
+  --snow-white: #F4F5F6;
   --off-grey: #B6A19E;
   --off-yellow: #FBA100;
 }
@@ -101,7 +101,7 @@
 
 .navbar-end {
   float: right;
-  padding-top: 1%;
+  padding-top: 1.5%;
 }
 
 .navbar-start {
@@ -119,6 +119,14 @@
 
 .tall {
   height: 70%;
+}
+
+li.is-active {
+  background-color: var(--teal);
+}
+
+.menu-list li.is-active a {
+  color: var(--snow-white);
 }
 
 @media screen and (min-width: 801px) {
@@ -198,16 +206,16 @@
   color: var(--teal);
 }
 
-/* Change the navbar to be purple and sticky in front of content */
+/* Change the navbar to be snow-white and sticky in front of content */
 .navbar {
-  background-color: var(--purple) !important;
+  background-color: var(--snow-white) !important;
   position: fixed !important; top: 0; left: 0; right: 0; 
   z-index: 10;
 }
 
 /* Put some space between the top bar and body content */
 .hero-head {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 /* Change the footer to be black */
@@ -217,17 +225,17 @@
 
 /* Change the footer elements to be grey when not selected */
 .hero-foot li a {
-  color: var(--off-grey);
+  color: var(--snow-white);
 }
 
-/* Change the active text on the footer to be purple */
+/* Change the active text on the footer to be snow-white */
 .hero-foot li.is-active a {
-  color: var(--purple);
+  color: black;
 }
 
 /* Make text yellow */
-.is-deep-yellow {
-  color: var(--off-yellow);
+.is-snow-white {
+  color: var(--snow-white);
 }
 
 /* Make text white */
