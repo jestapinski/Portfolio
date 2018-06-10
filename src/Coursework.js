@@ -266,8 +266,8 @@ class Coursework extends React.Component {
         <h2 className="animated title is-1 fadeInUp is-spaced is-snow-white">
             Coursework
         </h2>
-        <label className="label is-size-5 is-teal-text">Group By:</label>
-        <div className="select">
+        <label className="animated fadeInUp label is-size-5 is-teal-text">Group By:</label>
+        <div className="animated fadeInUp select">
           <select onChange={this.toggle_sorted}>
             <option>Department</option>
             <option>Semester</option>
