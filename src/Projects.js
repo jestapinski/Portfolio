@@ -158,13 +158,16 @@ class Projects extends React.Component {
         short_description: "Improving UX inside autonomous vehicles.",
         image_path: "project_imgs/harman_logo.png",
         dates: "January 2018 - August 2018",
-        description: "Using primary and secondary research to fuel the creation of a new product or service to be placed inside level 3/4 autonomous vehicles.",
+        description: "Using primary and secondary research to fuel the creation of a new product or service to be placed inside level 3/4 autonomous vehicles. Served as technical lead fueling development of higher fidelity prototypes for physical system.",
         index: 8,
         resources: [
           {name: 'Blog', link: 'link tbd'}
         ],
         soft_stack: [
-          'TBD'
+          'Python 3',
+          'Android Studio',
+          'Sketch',
+          'Wordpress'
         ]  
       }
     ];

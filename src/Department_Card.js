@@ -23,11 +23,13 @@ class DepartmentCard extends React.Component {
   render(){
     return (
         <div className="card column animated fadeInUp post-card" onClick={this.flip_handler}>
+          <a>
           <div className="card-image">
             <figure className="image is-square">
               <img src={this.department.image_path} alt={this.department.abbrev}/>
             </figure>
           </div>
+          </a>
           <div className="card-content">
             <div className="content bottomless">
               <p className="pname is-size-5">{this.department.name}</p>
@@ -37,6 +39,7 @@ class DepartmentCard extends React.Component {
               </span>
             </div>
           </div>
+
         </div>
       )
   }

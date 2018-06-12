@@ -36,6 +36,14 @@
   padding-top: 0px;
 }
 
+.image.is-square img:hover {
+  opacity: 0.6 !important;
+}
+
+.card-image:hover {
+  opacity: 0.6 !important;
+}
+
 /* Give cards and their images a shadow for a better sense of realism */
 .card, .card-image{
   box-shadow: 3px 3px 2px #222222;
