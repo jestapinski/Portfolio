@@ -47,7 +47,7 @@ class Experience extends React.Component {
         image_path: "exp_imgs/boa.png",
         location: "New York, NY",
         skills: ["Python", "Industrial Testing", "Agile Development", "Work-Life Balance", "Teamwork", "Presentation Skills"],
-        description: "Worked in Global Markets division on application used for internal Valuation Control. Pioneered ‘Realtime Tables’ testing system and improved overall system functionality."   
+        description: "Worked in Global Markets division on application used for internal Valuation Control. Pioneered ‘Realtime Tables’ testing system and improved overall system functionality.",
       },
       { corp: "Carnegie Mellon University", 
         position: "Student Life", 

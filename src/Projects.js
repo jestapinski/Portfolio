@@ -73,18 +73,20 @@ class Projects extends React.Component {
         ]  
       },
       { 
-        name: "Touchify iOS App", 
-        short_description: "Cross-Platform security.",
-        image_path: "project_imgs/TouchifyAppicon.png",
-        dates: "October 2016 - December 2016",
-        description: "Created an application to authenticate users on a desktop client using the TouchID on an iOS device. Implemented an iOS application to process biometric security and a Node.JS web framework to process authentication requests using Socket.IO.",
+        name: "Harman Capstone Project", 
+        short_description: "Improving UX inside autonomous vehicles.",
+        image_path: "project_imgs/harman_logo.png",
+        dates: "January 2018 - August 2018",
+        description: "Using primary and secondary research to fuel the creation of a new product or service to be placed inside level 3/4 autonomous vehicles. Served as technical lead fueling development of higher fidelity prototypes for physical system.",
         index: 3,
         resources: [
-          {name: 'Combined Github Repository', link: 'https://github.com/jestapinski/Touch-ID-Web-Authentication/tree/master/ExpressLab'}
+          {name: 'Blog', link: 'https://jestapinski.github.io/harman_research_design_site/'}
         ],
         soft_stack: [
-          'Swift 3',
-          'Node.JS',
+          'Python 3',
+          'Android Studio',
+          'Sketch',
+          'Wordpress'
         ]  
       }
     ];
@@ -92,12 +94,27 @@ class Projects extends React.Component {
     // Define projects to be in the lower row of projects
     this.lower_projects = [
       { 
+        name: "Touchify iOS App", 
+        short_description: "Cross-Platform security.",
+        image_path: "project_imgs/TouchifyAppicon.png",
+        dates: "October 2016 - December 2016",
+        description: "Created an application to authenticate users on a desktop client using the TouchID on an iOS device. Implemented an iOS application to process biometric security and a Node.JS web framework to process authentication requests using Socket.IO.",
+        index: 4,
+        resources: [
+          {name: 'Combined Github Repository', link: 'https://github.com/jestapinski/Touch-ID-Web-Authentication/tree/master/ExpressLab'}
+        ],
+        soft_stack: [
+          'Swift 3',
+          'Node.JS',
+        ]  
+      },
+      { 
         name: "Mites Occupancy Sensing", 
         short_description: "People sensing without video.",
         image_path: "project_imgs/synth_sensor.jpeg",
         dates: "March 2017 - May 2017",
         description: "Worked with doctoral students at Carnegie Mellon’s Institute for Software Research to construct a means by which occupancy in a room (including binary occupancy and exact numeric occupancy counts) could be generated without the use of video feeds. Worked with the ISR SuperSensor IoT device to pull and analyze raw data to find occupancy information in real-time.",
-        index: 4,
+        index: 5,
         resources: [],
         soft_stack: [
           'Python 3',
@@ -110,7 +127,7 @@ class Projects extends React.Component {
         image_path: "project_imgs/radix_sort.png",
         dates: "October 2015 - December 2015",
         description: "Partnered with Professor David Kosbie at Carnegie Mellon University to implement pedagogical web exercises for introductory computer science students. Performed user testing in order to refine front-end content will building off of a custom javascript API.",
-        index: 5,
+        index: 6,
         resources: [
           {name: 'Github Repository', link: 'https://github.com/jestapinski/RadixSortExercise'}
         ],
@@ -125,7 +142,7 @@ class Projects extends React.Component {
         image_path: "project_imgs/cstoall_hub.png",
         dates: "July 2017 - August 2017",
         description: "Forged a means of distributing customized, online pedagogical content to New York City public school students. Implemented prototype registration and activity upload pages for portal website for teachers to access CS4ALL online content.",
-        index: 6,
+        index: 7,
         resources: [
           {name: 'Github Repository', link: 'https://github.com/jestapinski/csnyc_portal'}
         ],
@@ -142,7 +159,7 @@ class Projects extends React.Component {
         image_path: "project_imgs/BlocktraderAppicon.png",
         dates: "October 2016 - December 2016",
         description: "Implemented an UberEats clone on iOS devices integrating Stripe API with two custom-built backend servers to create a comprehensive ecommerce mobile application. Worked with mentors from Captial One’s mobile development team to understand use cases and implement user interface and experience improvements through iterating.",
-        index: 7,
+        index: 8,
         resources: [
           {name: 'Github Repository', link: 'https://github.com/jestapinski/FinalBlockTrader442'}
         ],
@@ -151,23 +168,6 @@ class Projects extends React.Component {
           'Stripe API',
           'Ruby (for Stripe server)',
           'Heroku'
-        ]  
-      },
-            { 
-        name: "Harman Capstone Project", 
-        short_description: "Improving UX inside autonomous vehicles.",
-        image_path: "project_imgs/harman_logo.png",
-        dates: "January 2018 - August 2018",
-        description: "Using primary and secondary research to fuel the creation of a new product or service to be placed inside level 3/4 autonomous vehicles. Served as technical lead fueling development of higher fidelity prototypes for physical system.",
-        index: 8,
-        resources: [
-          {name: 'Blog', link: 'link tbd'}
-        ],
-        soft_stack: [
-          'Python 3',
-          'Android Studio',
-          'Sketch',
-          'Wordpress'
         ]  
       }
     ];
@@ -215,7 +215,7 @@ class Projects extends React.Component {
     let expanded = this.state.expanded;
     if (expanded){
       cname = "container animated fadeIn modal is-active";
-      c_pos = "modal-card mc-0"; // + (expanded.index % 4).toString();
+      c_pos = "modal-card mc-0 wide"; // + (expanded.index % 4).toString();
     } else {
       return;
     }

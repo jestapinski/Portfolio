@@ -55,7 +55,9 @@ class Coursework extends React.Component {
       {num: "05-671", dept: "HCI", sem: "S18", title: "Master's Project in Human-Computer Interaction I"},
       {num: "67-364", dept: "IS",  sem: "S18", title: "Practical Data Science"},
       {num: "67-392", dept: "IS", sem: "S18", title: "iOS Course Redesign Independent Study"},
-      {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"}
+      {num: "80-180", dept: "PHI", sem: "S18", title: "The Nature of Language"},
+      {num: "05-672", dept: "HCI", sem: "M18", title: "Master's Project in Human-Computer Interaction II"},
+      {num: "05-899", dept: "HCI", sem: "F18", title: "Document Design"}
     ];
 
     // Define departments as an array of JavaScript Objects with abbreviation, name, description, and image_path.
