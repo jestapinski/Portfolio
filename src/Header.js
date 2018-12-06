@@ -95,15 +95,15 @@ class Header extends React.Component {
                 <img src="resume.png" className="github-logo" alt="Resume" />
               </a>
 
-              <a href="https://www.github.com/jestapinski" className="top-nav-link">
+              <a href="https://www.github.com/jestapinski" className="top-nav-link" target="_blank">
                 <img src="github.png" className="github-logo" alt="GitHub" />
               </a>
 
-              <a href="https://www.linkedin.com/in/jordanstapinski/" className="top-nav-link">
+              <a href="https://www.linkedin.com/in/jordanstapinski/" className="top-nav-link" target="_blank">
                 <img src="linkedin.png" className="github-logo" alt="LinkedIn" />
               </a>
 
-              <a href="mailto:jestapinski@yahoo.com" className="top-nav-link">
+              <a href="mailto:jestapinski@yahoo.com" className="top-nav-link" target="_blank">
                 <img src="email.png" className="github-logo" alt="Email" />
               </a>
             </div>

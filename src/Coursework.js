@@ -99,6 +99,7 @@ class Coursework extends React.Component {
       {abbrev: "S17", name: "Spring 2017", image_path: "sem_imgs/S17.png"},
       {abbrev: "F17", name: "Fall 2017", image_path: "sem_imgs/F17.png"},
       {abbrev: "S18", name: "Spring 2018", image_path: "sem_imgs/S18.png"},
+      {abbrev: "M18", name: "Summer 2018", image_path: "sem_imgs/M18.png"},
     ];
 
     /* 
